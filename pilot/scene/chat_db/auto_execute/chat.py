@@ -46,7 +46,8 @@ class ChatWithDbAutoExecute(BaseChat):
             print("db summary find error!" + str(e))
             table_infos = self.database.table_simple_info()
 
-        # table_infos = self.database.table_simple_info()
+        for info in table_infos:
+            info['document'] = self.database.get_document_name(info['table'])
 
         input_values = {
             "input": self.current_user_input,
