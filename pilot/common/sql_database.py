@@ -489,3 +489,11 @@ class Database:
         return [
             (table_comment[0], table_comment[1]) for table_comment in table_comments
         ]
+
+class MySQLDatabase(Database):
+    def __init__(self, db_name):
+        super().__init__(db_name)
+        # TODO: Implement MySQL connection and methods
+
+    def store_chat(self, chat_session_id, user_input, response):
+        # TODO: Implement method to store chat history in MySQL database
